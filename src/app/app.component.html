@@ -1,5 +1,6 @@
 <main>
   <section *ngIf="state">
+    <h1>¿A dónde vas?</h1>
     <article>
       <button (click)="isEntrance(true)">Entrada</button>
     </article>
@@ -7,9 +8,12 @@
       <button (click)="isEntrance(false)">Salida</button>
     </article>
   </section>
-  <section>
+  <section *ngIf="!state">
+    <h1>Escuchando constantemente</h1>
     <article>
-      {{responseService}}
+      <p>
+        {{responseService}}
+      </p>
     </article>
   </section>
 </main>

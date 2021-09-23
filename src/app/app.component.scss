@@ -1,0 +1,41 @@
+main{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    overflow: hidden;
+    section{
+        h1{
+            text-align: center;
+            font-size: 60px;
+            color: rgb(234, 149, 255);
+        }
+        &:first-child{
+            display: grid;
+            display: inline;
+            grid-template-columns: 1fr 1fr;
+            article{
+                margin: 40px;
+                button{
+                    border: none;
+                    border-radius: 10px;
+                    background-color: #b6b6b657;
+                    font-size: 40px;
+                    padding: 20px;
+                    transition: background-color .4s;
+                    transition: transform .4s ease;
+                    color: greenyellow;
+                    &:hover{
+                        background-color: rgba(255, 102, 0, 0.527);
+                        transform: scale(1.5);
+                    }
+                }
+            }
+        }
+        &:last-child{
+            article{
+                text-align: center;
+                font-size: 40px;
+            }
+        }
+    }
+}
