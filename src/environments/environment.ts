@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  postEntranceControl: "http://localhost:3000/new-entrance",
-  mqttServer: '10.10.100.50',
+  postEntranceControl: "http://10.10.2.1:3000/new-entrance",
+  mqttServer: '10.10.2.1',
   mqttPath: '/',
   mqttPort: 1884,
 };

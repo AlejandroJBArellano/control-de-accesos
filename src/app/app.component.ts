@@ -64,7 +64,7 @@ export class AppComponent {
   isEntrance(isEntrance: boolean){
     this.reutrnedPulses = this.configurationService.getConfig(isEntrance)
     this.reutrnedPulses.forEach((topic: any) => {
-      topic.subscription = this._mqttService.observe(topic).subscribe((message: IMqttMessage) => {
+      this._mqttService.observe(topic).subscribe((message: IMqttMessage) => {
         this.processMessage(message.payload.toString(), topic)
       })
     })
