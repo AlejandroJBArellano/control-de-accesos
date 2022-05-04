@@ -1,19 +1,36 @@
-<main>
-  <section *ngIf="state">
-    <h1>¿A dónde vas?</h1>
-    <article>
-      <button (click)="isEntrance(true)">Entrada</button>
-    </article>
-    <article>
-      <button (click)="isEntrance(false)">Salida</button>
+<main [class.entrance]="state === 'userTagId'" *ngIf="state === 'userTagId'">
+  <section *ngIf="!waitingForUser">
+    <div *ngIf="userTagId">
+      <article class="user" *ngIf="userTagId.tag_id">
+        <p>
+          <img src="../assets/green-dots-hi.png">
+          {{userTagId.first_name | titlecase}} {{userTagId.last_name | titlecase}}
+        </p>
+      </article>
+
+    </div>
+  </section>
+</main>
+<!-- 3 sections diferentes -->
+<main [class.noEntry]="state === 'UserSoon'" *ngIf="state === 'UserSoon'">
+  <section>
+    <article *ngIf="!canEntry">
+      <h1>{{userTagId.first_name}}, por favor, regresa a partir de {{userTagId.accessdate | date : 'EEEE d LLLL' : 'locale'}} a las {{userTagId.accessdate | date: 'HH:mm'}}</h1>
     </article>
   </section>
-  <section *ngIf="!state">
-    <h1>Escuchando constantemente</h1>
-    <article>
-      <p>
-        {{responseService}}
-      </p>
-    </article>
+</main>
+<main [class.noEntry]="state === 'noUser'" *ngIf="state === 'noUser' || state === 'begin'">
+  <section *ngIf="!portTolisten.topic">
+    <label>Selecciona al pulso que quieres escuchar</label>
+    <select [(ngModel)]="portTolisten.topic" (ngModelChange)="isEntrance()">
+      <option *ngFor="let port of ports" value={{port.topic}} [selected]="ports[0].topic === port.topic">{{port.topic}} {{port.event}}</option>
+    </select>
   </section>
+  <section *ngIf="!waitingForUser">
+    <div *ngIf="!userTagId">
+      <h1>{{portTolisten.event | uppercase}}</h1>
+      <h5>Escuchando constantemente en el puerto {{portTolisten.topic}}</h5>
+    </div>
+  </section>
+  <img src={{linkLogo}} alt="" id="event-logo">
 </main>

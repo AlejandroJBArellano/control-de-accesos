@@ -4,10 +4,13 @@
 
 export const environment = {
   production: false,
-  postEntranceControl: "http://10.10.2.1:3000/new-entrance",
-  mqttServer: '10.10.2.1',
+  postEntranceControl: "http://localhost:3000/new-entrance",
+  tag_id: 'http://localhost:3000/tag_id-user',
+  configEntrance: 'http://localhost:3000/config-entrance',
+  mqttServer: 'mqtt.inpulse.mx',
   mqttPath: '/',
-  mqttPort: 1884,
+  mqttPort: 8080,
+  linkLogo: ''
 };
 
 /*

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
-import { Entry } from '../models/entrance';
 import { environment } from 'src/environments/environment';
 
 
@@ -11,8 +10,14 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  entry(entrance: Entry){
-    return this.http.post(environment.postEntranceControl, entrance)
+  userTagId(tag_id: string){
+    return this.http.get(environment.tag_id, {
+      params: {
+        tag_id
+      }
+    })
   }
-
+  getConfigTags(){
+    return this.http.get(environment.configEntrance)
+  }
 }
