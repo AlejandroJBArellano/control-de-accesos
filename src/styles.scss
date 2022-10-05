@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Raleway&display=swap');
 * {
-    font-family: 'Yaldevi', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 body{
     margin: 0;
+    position: relative;
+
     // background: url("assets/background.jpg") fixed border-box no-repeat;
     // background-size: cover;
 }

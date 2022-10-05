@@ -1,36 +1,40 @@
-<main [class.entrance]="state === 'userTagId'" *ngIf="state === 'userTagId'">
-  <section *ngIf="!waitingForUser">
-    <div *ngIf="userTagId">
-      <article class="user" *ngIf="userTagId.tag_id">
-        <p>
-          <img src="../assets/green-dots-hi.png">
-          {{userTagId.first_name | titlecase}} {{userTagId.last_name | titlecase}}
-        </p>
-      </article>
-
-    </div>
-  </section>
-</main>
-<!-- 3 sections diferentes -->
-<main [class.noEntry]="state === 'UserSoon'" *ngIf="state === 'UserSoon'">
+<main [class.noEntry]="state === 'UserSoon'" *ngIf="state === 'UserSoon'" [style]="'background-image: url('+ linkLogo +');'">
   <section>
     <article *ngIf="!canEntry">
       <h1>{{userTagId.first_name}}, por favor, regresa a partir de {{userTagId.accessdate | date : 'EEEE d LLLL' : 'locale'}} a las {{userTagId.accessdate | date: 'HH:mm'}}</h1>
     </article>
   </section>
 </main>
-<main [class.noEntry]="state === 'noUser'" *ngIf="state === 'noUser' || state === 'begin'">
+<main [class.noEntry]="state === 'noUser'" *ngIf="state === 'noUser' || state === 'begin'" [style]="'background-image: url('+ linkLogo +');'">
   <section *ngIf="!portTolisten.topic">
     <label>Selecciona al pulso que quieres escuchar</label>
     <select [(ngModel)]="portTolisten.topic" (ngModelChange)="isEntrance()">
       <option *ngFor="let port of ports" value={{port.topic}} [selected]="ports[0].topic === port.topic">{{port.topic}} {{port.event}}</option>
     </select>
   </section>
-  <section *ngIf="!waitingForUser">
-    <div *ngIf="!userTagId">
-      <h1>{{portTolisten.event | uppercase}}</h1>
-      <h5>Escuchando constantemente en el puerto {{portTolisten.topic}}</h5>
+  <section *ngIf="!waitingForUser" class="main">
+    <div>
+      <article class="header">
+        <h1 [style]="'color:'+portTolisten.fontColor+';'">{{portTolisten.terminalTitle | uppercase}}</h1>
+        <label>{{portTolisten.shortDescription}}</label>
+      </article>
+      <article class="card" *ngIf="userTagId?.tag_id">
+        <div class="info">
+          <h1 [style]="'color:' + fontColorForBadge + ';'">
+            {{userTagId.first_name | titlecase}} {{userTagId.last_name | titlecase}}
+          </h1>
+          <p [style]="'color:' + fontColorForBadge + ';'">{{messageBadge}} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quibusdam.</p>
+        </div>
+        <div class="image">
+          <img src={{imgBadge}} alt="">
+        </div>
+      </article>
+      <article class="main">
+        <h2 [style]="'position:' + (userTagId?.tag_id ? 'static' : 'absolute') + ';'">Acerca tu gafete inteligente a la lectora</h2>
+      </article>
+      <article class="footer">
+        <h5>Escuchando constantemente en el puerto {{portTolisten.topic}}</h5>
+      </article>
     </div>
   </section>
-  <img src={{linkLogo}} alt="" id="event-logo">
 </main>
