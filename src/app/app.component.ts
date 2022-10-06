@@ -133,7 +133,7 @@ export class AppComponent implements OnInit {
         this.imgBadge = '';
         this.messageBadge = '';
         this.fontColorForBadge = '';
-      }, 500000000000000);
+      }, 5000);
       // TODO: get user info by tag id desde localhost:3000 and save the data into local variable
     } catch (err) {
       this.err = true;
