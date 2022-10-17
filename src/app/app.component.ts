@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   declare userTagId: any;
   accessDate: any;
   linkLogo = environment.linkLogo;
-  ports: { _id: string; topic: string; event: string; imgUrl: string }[] = [];
+  ports: { _id: string; topic: string; event: string; terminalTitle: string; imgUrl: string }[] = [];
   portTolisten: any = {};
   background = '';
   timeout: any;
