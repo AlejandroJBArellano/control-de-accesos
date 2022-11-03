@@ -9,7 +9,7 @@
   <section *ngIf="!portTolisten.topic">
     <label>Selecciona al pulso que quieres escuchar</label>
     <select [(ngModel)]="portTolisten.topic" (ngModelChange)="isEntrance()">
-      <option *ngFor="let port of ports" value={{port.topic}} [selected]="ports[0].topic === port.topic">{{port.topic}} {{port.event}}</option>
+      <option *ngFor="let port of ports" value={{port.topic}}>{{port.topic}} {{port.event}}</option>
     </select>
   </section>
   <section *ngIf="!waitingForUser" class="main">

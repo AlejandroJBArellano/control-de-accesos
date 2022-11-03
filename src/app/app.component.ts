@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './services/api.service';
-import {
-  IMqttMessage,
-  MqttModule,
-  MqttService,
-  IMqttServiceOptions,
-} from 'ngx-mqtt';
-import { ConfigurationService } from './services/configuration.service';
+import { IMqttMessage, MqttService } from 'ngx-mqtt';
 import { environment } from 'src/environments/environment';
+import { ApiService } from './services/api.service';
+import { ConfigurationService } from './services/configuration.service';
 import { IBagde } from './types/badge';
-import { IUserTagID } from './types/tagIdUser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -67,7 +61,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getConfigTags().subscribe(
+    this.apiService.getConfigEntrances().subscribe(
       (res: any) => {
         this.ports = [...res];
         console.log(res);
@@ -142,6 +136,7 @@ export class AppComponent implements OnInit {
   }
 
   isEntrance() {
+    console.log('isEntrance');
     this.portTolisten = this.ports.find(
       (e) => this.portTolisten.topic === e.topic
     );

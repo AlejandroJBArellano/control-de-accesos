@@ -1,0 +1,156 @@
+Package Report
+
+-----------------------------------------------------------------------------
+Document:
+Name: S+ Pantallas de registro.ai
+Color Mode: RGB color
+Color Profile: Display
+Ruler Units: pixels
+Artboard Dimensions: 1920 px x 1080 px
+Show Images in Outline Mode: OFF
+Highlight Substituted Fonts: OFF
+Highlight Substituted Glyphs: OFF
+Preserve Text Editability
+Simulate Colored Paper: OFF
+
+-----------------------------------------------------------------------------
+Spot Color Objects:
+PANTONE 2655 C (Lab)
+PANTONE 2768 C (Lab)
+PANTONE 295 C (Lab)
+PANTONE 2985 C (Lab)
+PANTONE 7543 C (Lab)
+PANTONE Cool Gray 10 C (Lab)
+PANTONE Red 032 C (Lab)
+
+-----------------------------------------------------------------------------
+Missing Fonts:NONE
+
+-----------------------------------------------------------------------------
+Protected Fonts that were not packaged:
+Montserrat Regular (Adobe Fonts)
+Montserrat SemiBold (Adobe Fonts)
+Myriad Pro (Adobe Fonts)
+
+-----------------------------------------------------------------------------
+Fonts:
+Neue Haas Grotesk Display Pro 45 Light (OTF)
+Neue Haas Grotesk Display Pro 65 Medium (OTF)
+
+-----------------------------------------------------------------------------
+Embedded Fonts:
+NONE
+
+-----------------------------------------------------------------------------
+Missing Links:
+NONE
+
+-----------------------------------------------------------------------------
+Linked Images:
+
+/Users/smart/Documents/Smart+/S+ Pines/S+ Pines - PNGs/S+ Pines - Platinum.png
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 71122K, 4267 by 4267 pixels
+Dimensions: 500 by 500 points 
+Resolution: 614.448 by 614.448 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Pantallas/EVO Pantallas - Recursos/ES Rangos - Platinum.png
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 892K, 478 by 478 pixels
+Dimensions: 200 by 200 points 
+Resolution: 172.08 by 172.08 pixels per inch
+
+
+/Users/smart/Documents/Smart+/S+ Fotografias/AdobeStock_458582582 edit.jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 76792K, 6826 by 3840 pixels
+Dimensions: 2750.89 by 1547.527 points 
+Resolution: 178.659 by 178.659 pixels per inch
+
+
+/Users/smart/Documents/Smart+/S+ Fotografias/AdobeStock_458582582 edit.jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 76792K, 6826 by 3840 pixels
+Dimensions: 2750.89 by 1547.527 points 
+Resolution: 178.659 by 178.659 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Pantallas/EVO Pantallas - Recursos/ES Rangos - Platinum.png
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 892K, 478 by 478 pixels
+Dimensions: 200 by 200 points 
+Resolution: 172.08 by 172.08 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Pantallas/EVO Pantallas - Recursos/ES Rangos - Platinum.png
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 892K, 478 by 478 pixels
+Dimensions: 270 by 270 points 
+Resolution: 127.467 by 127.467 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Banners/EVO Banners - Recursos/opi (36).jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 30002K, 4267 by 2400 pixels
+Dimensions: 3159.566 by 2063.353 points 
+Resolution: 97.236 by 83.747 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Banners/EVO Banners - Recursos/30-professional-lens-flare-overlay-2021-11-11-18-36-35-utc/Pro_Lens_Flare (30).jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 23881K, 3500 by 2329 pixels
+Dimensions: 3765.705 by 2621.164 points 
+Resolution: 66.92 by 63.975 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Banners/EVO Banners - Recursos/opi (36).jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 30002K, 4267 by 2400 pixels
+Dimensions: 3159.566 by 2063.353 points 
+Resolution: 97.236 by 83.747 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Banners/EVO Banners - Recursos/30-professional-lens-flare-overlay-2021-11-11-18-36-35-utc/Pro_Lens_Flare (30).jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 23881K, 3500 by 2329 pixels
+Dimensions: 3765.705 by 2621.164 points 
+Resolution: 66.92 by 63.975 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Banners/EVO Banners - Recursos/opi (36).jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 30002K, 4267 by 2400 pixels
+Dimensions: 3159.566 by 2063.353 points 
+Resolution: 97.236 by 83.747 pixels per inch
+
+
+/Users/smart/Documents/SBC/Evolution/EVO Banners/EVO Banners - Recursos/30-professional-lens-flare-overlay-2021-11-11-18-36-35-utc/Pro_Lens_Flare (30).jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 23881K, 3500 by 2329 pixels
+Dimensions: 3765.705 by 2621.164 points 
+Resolution: 66.92 by 63.975 pixels per inch
