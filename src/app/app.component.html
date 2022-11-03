@@ -6,10 +6,10 @@
   </section>
 </main>
 <main [class.noEntry]="state === 'noUser'" *ngIf="state === 'noUser' || state === 'begin'" [style]="'background-image: url('+ linkLogo +');'">
-  <section *ngIf="!portTolisten.topic">
+  <section *ngIf="!portTolisten.event">
     <label>Selecciona al pulso que quieres escuchar</label>
-    <select [(ngModel)]="portTolisten.topic" (ngModelChange)="isEntrance()">
-      <option *ngFor="let port of ports" value={{port.topic}}>{{port.topic}} {{port.event}}</option>
+    <select [(ngModel)]="portTolisten.event" (ngModelChange)="isEntrance()">
+      <option *ngFor="let port of ports" value={{port.event}}>{{port.topic}} {{port.event}}</option>
     </select>
   </section>
   <section *ngIf="!waitingForUser" class="main">

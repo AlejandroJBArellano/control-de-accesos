@@ -25,7 +25,13 @@ export class AppComponent implements OnInit {
   declare userTagId: any;
   accessDate: any;
   linkLogo = environment.linkLogo;
-  ports: { _id: string; topic: string; event: string; terminalTitle: string; imgUrl: string }[] = [];
+  ports: {
+    _id: string;
+    topic: string;
+    event: string;
+    terminalTitle: string;
+    imgUrl: string;
+  }[] = [];
   portTolisten: any = {};
   background = '';
   timeout: any;
@@ -136,9 +142,8 @@ export class AppComponent implements OnInit {
   }
 
   isEntrance() {
-    console.log('isEntrance');
     this.portTolisten = this.ports.find(
-      (e) => this.portTolisten.topic === e.topic
+      (e) => this.portTolisten.event === e.event
     );
     this._mqttService
       .observe(this.portTolisten.topic)
