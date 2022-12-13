@@ -26,11 +26,11 @@
           <p [style]="'color:' + fontColorForBadge + ';'">{{messageBadge}}</p>
         </div>
         <div class="image">
-          <img src={{imgBadge}} alt="">
+          <img src={{imgBadge}} alt="" style="max-width: '570px';">
         </div>
       </article>
-      <article class="main">
-        <h2 [style]="'position:' + (userTagId?.tag_id ? 'static' : 'absolute') + ';'">Acerca tu gafete inteligente a la lectora</h2>
+      <article class="main"  *ngIf="!(userTagId?.tag_id)">
+        <h2 [style]="'position:' + (userTagId?.tag_id ? 'static' : 'absolute') + ';'">Acerca tu pulsera a la registradora para entrar a la rifa</h2>
       </article>
       <article class="footer">
         <h5>Escuchando constantemente en el puerto {{portTolisten.topic}}</h5>
