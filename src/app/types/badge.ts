@@ -3,4 +3,8 @@ export interface IBagde {
   message: string;
   img?: string;
   fontColor: string;
+  messages: {
+    img: string;
+    message: string;
+  }[];
 }

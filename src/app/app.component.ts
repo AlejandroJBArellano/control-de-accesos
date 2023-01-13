@@ -38,8 +38,7 @@ export class AppComponent implements OnInit {
   err: boolean = false;
   state: 'userTagId' | 'noUser' | 'UserSoon' | 'begin' = 'noUser';
 
-  allowedBadges: IBagde[] = [];
-  deniedBadges: IBagde[] = [];
+  badges: IBagde[] = [];
 
   imgBadge = '';
 
@@ -95,13 +94,16 @@ export class AppComponent implements OnInit {
             }, 1000);
             return;
           }
-          const allowedBadge = this.allowedBadges.find(({ badge }) => {
+          const badge = this.badges.find(({ badge }) => {
             return badge === this.userTagId.badge;
           });
-          if (allowedBadge) {
-            this.imgBadge = allowedBadge?.img as string;
-            this.messageBadge = allowedBadge?.message as string;
-            this.fontColorForBadge = allowedBadge?.fontColor as string;
+          if (badge) {
+            (window as any).userTagId = this.userTagId;
+            const randomMessage =
+              badge?.messages[~~(Math.random() * badge?.messages?.length)];
+            this.imgBadge = randomMessage?.img;
+            this.messageBadge = eval('`' + randomMessage?.message + '`');
+            this.fontColorForBadge = badge?.fontColor as string;
             this.accessDate = this.userTagId?.accessdate ?? 0;
             if (this.accessDate || this.accessDate === 0) {
               this.canEntry =
@@ -114,13 +116,6 @@ export class AppComponent implements OnInit {
               console.log('accessDate', new Date(this.accessDate));
               return;
             }
-          } else {
-            const deniedBadge = this.deniedBadges.find(({ badge }) => {
-              return badge === this.userTagId.badge;
-            });
-            this.imgBadge = deniedBadge?.img as string;
-            this.messageBadge = deniedBadge?.message as string;
-            this.fontColorForBadge = deniedBadge?.fontColor as string;
           }
         },
         (err) => console.log(err)
@@ -156,18 +151,11 @@ export class AppComponent implements OnInit {
     this.linkLogo = this.portTolisten.imgUrl;
     console.log('configuration');
     console.table(this.portTolisten);
-    if (
-      this.portTolisten &&
-      this.portTolisten.allowedBadges &&
-      this.portTolisten.deniedBadges
-    ) {
-      this.allowedBadges = this.portTolisten.allowedBadges;
-      this.deniedBadges = this.portTolisten.deniedBadges;
+    if (this.portTolisten && this.portTolisten.badges) {
+      this.badges = this.portTolisten.badges;
     }
-    console.info('Allowed Badges');
-    console.table(this.allowedBadges);
-    console.info('Denied Badges');
-    console.table(this.deniedBadges);
+    console.info('Badges');
+    console.table(this.badges);
     this.waitingForUser = false;
   }
 }
