@@ -3,47 +3,38 @@ import { IMqttMessage, MqttService } from 'ngx-mqtt';
 import { environment } from 'src/environments/environment';
 import { ApiService } from './services/api.service';
 import { ConfigurationService } from './services/configuration.service';
-import { IBagde } from './types/badge';
+import { IBadge, IPort } from './types';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  config: any = {};
-
-  event_type: string = '';
-
-  reutrnedPulses: string[] = [];
-
-  selectedConfig: string = '';
-
-  responseService: string = '';
-
+  // Arrays
+  declare returnedPulses: string[];
+  declare ports: IPort[];
+  declare badges: IBadge[];
+  // Strings
+  declare imgBadge: string;
+  declare messageBadge: string;
+  declare responseService: string;
+  declare fontColorForBadge: string;
+  declare event_type: string;
+  declare selectedConfig: string;
+  public linkLogo = environment.linkLogo;
+  state: 'userTagId' | 'noUser' | 'UserSoon' | 'begin' = 'noUser';
+  declare background: string;
+  // Int and floats
+  // Booleans
   waitingForUser: boolean = true;
   canEntry: boolean = true;
-  declare userTagId: any;
-  accessDate: any;
-  linkLogo = environment.linkLogo;
-  ports: {
-    _id: string;
-    topic: string;
-    event: string;
-    terminalTitle: string;
-    imgUrl: string;
-  }[] = [];
-  portTolisten: any = {};
-  background = '';
-  timeout: any;
   err: boolean = false;
-  state: 'userTagId' | 'noUser' | 'UserSoon' | 'begin' = 'noUser';
-
-  badges: IBagde[] = [];
-
-  imgBadge = '';
-
-  messageBadge = '';
-  fontColorForBadge = '';
+  // Others
+  declare timeout: null | NodeJS.Timeout;
+  declare portToListen: IPort;
+  declare config: any;
+  declare userTagId: any;
+  declare accessDate: any;
 
   constructor(
     private _mqttService: MqttService,
@@ -77,7 +68,7 @@ export class AppComponent implements OnInit {
   async processMessage(message: string, topic: string) {
     console.log('message on reader ' + message);
     try {
-      clearTimeout(this.timeout);
+      clearTimeout(this.timeout as NodeJS.Timeout);
       const cmd = JSON.parse(message);
       cmd.id_lectora = topic;
       cmd.event_type = this.selectedConfig;
@@ -121,38 +112,39 @@ export class AppComponent implements OnInit {
         (err) => console.log(err)
       );
       console.log(this.userTagId, 'userTag');
-      this.timeout = setTimeout(() => {
-        this.userTagId = null;
-        this.canEntry = true;
-        this.state = 'begin';
-        this.imgBadge = '';
-        this.messageBadge = '';
-        this.fontColorForBadge = '';
-      }, 5000);
-      // TODO: get user info by tag id desde localhost:3000 and save the data into local variable
+      this.timeout = setTimeout(this.resetVariables, 5000);
     } catch (err) {
       this.err = true;
       console.log('err', err);
     }
   }
 
+  resetVariables() {
+    this.userTagId = null;
+    this.canEntry = true;
+    this.state = 'begin';
+    this.imgBadge = '';
+    this.messageBadge = '';
+    this.fontColorForBadge = '';
+  }
+
   isEntrance() {
-    this.portTolisten = this.ports.find(
-      (e) => this.portTolisten.event === e.event
-    );
+    this.portToListen = this.ports.find(
+      (e) => this.portToListen.event === e.event
+    ) as IPort;
     this._mqttService
-      .observe(this.portTolisten.topic)
+      .observe(this.portToListen.topic)
       .subscribe((message: IMqttMessage) => {
         this.processMessage(
           message.payload.toString(),
-          this.portTolisten.topic
+          this.portToListen.topic
         );
       });
-    this.linkLogo = this.portTolisten.imgUrl;
+    this.linkLogo = this.portToListen.imgUrl;
     console.log('configuration');
-    console.table(this.portTolisten);
-    if (this.portTolisten && this.portTolisten.badges) {
-      this.badges = this.portTolisten.badges;
+    console.table(this.portToListen);
+    if (this.portToListen && this.portToListen.badges) {
+      this.badges = this.portToListen.badges;
     }
     console.info('Badges');
     console.table(this.badges);

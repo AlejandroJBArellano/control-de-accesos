@@ -6,17 +6,17 @@
   </section>
 </main>
 <main [class.noEntry]="state === 'noUser'" *ngIf="state === 'noUser' || state === 'begin'" [style]="'background-image: url('+ linkLogo +');'">
-  <section *ngIf="!portTolisten.event">
+  <section *ngIf="!portToListen.event">
     <label>Selecciona al pulso que quieres escuchar</label>
-    <select [(ngModel)]="portTolisten.event" (ngModelChange)="isEntrance()">
+    <select [(ngModel)]="portToListen.event" (ngModelChange)="isEntrance()">
       <option *ngFor="let port of ports" value={{port.event}}>{{port.topic}} {{port.event}}</option>
     </select>
   </section>
   <section *ngIf="!waitingForUser" class="main">
     <div>
       <article class="header">
-        <h1 [style]="'color:'+portTolisten.fontColor+';'">{{portTolisten.terminalTitle | uppercase}}</h1>
-        <label>{{portTolisten.shortDescription}}</label>
+        <h1 [style]="'color:'+portToListen.fontColor+';'">{{portToListen.terminalTitle | uppercase}}</h1>
+        <label>{{portToListen.shortDescription}}</label>
       </article>
       <article class="card" *ngIf="userTagId?.tag_id">
         <div class="info">
@@ -33,7 +33,7 @@
         <h2 [style]="'position:' + (userTagId?.tag_id ? 'static' : 'absolute') + ';'">Acerca tu pulsera a la registradora para entrar a la rifa</h2>
       </article>
       <article class="footer">
-        <h5>Escuchando constantemente en el puerto {{portTolisten.topic}}</h5>
+        <h5>Escuchando constantemente en el puerto {{portToListen.topic}}</h5>
       </article>
     </div>
   </section>

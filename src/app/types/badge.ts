@@ -1,4 +1,4 @@
-export interface IBagde {
+export interface IBadge {
   badge: string;
   message: string;
   img?: string;
