@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   err: boolean = false;
   // Others
   declare timeout: null | NodeJS.Timeout;
-  declare portToListen: IPort;
+  portToListen: Partial<IPort> = {};
   declare accessDate: string | number;
   declare userTagId: any;
 
@@ -92,7 +92,7 @@ export class AppComponent implements OnInit {
             return badge === this.userTagId.badge;
           });
           if (badge) {
-            (window as any).userTagId = this.userTagId;
+            (window as any).user = this.userTagId;
             const randomMessage =
               badge?.messages[~~(Math.random() * badge?.messages?.length)];
             this.imgBadge = randomMessage?.img;
@@ -136,14 +136,14 @@ export class AppComponent implements OnInit {
       (e) => this.portToListen.event === e.event
     ) as IPort;
     this._mqttService
-      .observe(this.portToListen.topic)
+      .observe(this.portToListen?.topic as string)
       .subscribe((message: IMqttMessage) => {
         this.processMessage(
           message.payload.toString(),
-          this.portToListen.topic
+          this.portToListen?.topic as string
         );
       });
-    this.linkLogo = this.portToListen.imgUrl;
+    this.linkLogo = this.portToListen.imgUrl as string;
     console.log('configuration');
     console.table(this.portToListen);
     if (this.portToListen && this.portToListen.badges) {
