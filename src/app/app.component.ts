@@ -32,9 +32,8 @@ export class AppComponent implements OnInit {
   // Others
   declare timeout: null | NodeJS.Timeout;
   declare portToListen: IPort;
-  declare config: any;
+  declare accessDate: string | number;
   declare userTagId: any;
-  declare accessDate: any;
 
   constructor(
     private _mqttService: MqttService,
@@ -69,7 +68,11 @@ export class AppComponent implements OnInit {
     console.log('message on reader ' + message);
     try {
       clearTimeout(this.timeout as NodeJS.Timeout);
-      const cmd = JSON.parse(message);
+      const cmd = JSON.parse(message) as {
+        id_lectora: string;
+        event_type: string;
+        tag_id: string;
+      };
       cmd.id_lectora = topic;
       cmd.event_type = this.selectedConfig;
       console.log('cmd', cmd);
